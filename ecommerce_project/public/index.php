@@ -17,6 +17,14 @@
     include __DIR__ . "/../inc/header.inc.php";
     ?>
     <main class="container">
+        <!-- Hero Image -->
+        <!-- Full-Width Hero Section -->
+        <div class="container-fluid p-0"> <!-- container-fluid makes it full width -->
+            <a href="shop.php">
+                <img src="images/hero_image.png" class="img-fluid hero-img" alt="Hero Image">
+            </a>
+        </div>
+
         <!-- First Section -->
         <section id="dogs">
             <h2>All About Dogs!</h2>
