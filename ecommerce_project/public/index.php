@@ -16,15 +16,19 @@
     <?php
     include __DIR__ . "/../inc/header.inc.php";
     ?>
-    <main class="container">
-        <!-- Hero Image -->
-        <!-- Full-Width Hero Section -->
-        <div class="container-fluid p-0"> <!-- container-fluid makes it full width -->
+    <!-- Hero Image -->
+    <div class="row g-0"> <!-- g-0 removes Bootstrap gutter spacing -->
+        <div class="col-12 p-0"> <!-- col-12 ensures full width -->
             <a href="shop.php">
                 <img src="images/hero_image.png" class="img-fluid hero-img" alt="Hero Image">
             </a>
         </div>
+    </div>
 
+    <main class="container">
+    <?php
+    include __DIR__ . "/../inc/products.inc.php";
+    ?>
         <!-- First Section -->
         <section id="dogs">
             <h2>All About Dogs!</h2>
