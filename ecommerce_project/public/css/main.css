@@ -8,17 +8,24 @@ body {
 /* ============================= */
 
 .hero-img {
-  width: 100vw; /* 100% of viewport width */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Removes inline spacing */
-  margin: 0; /* Remove any default margins */
-  padding: 0; /* Remove any extra padding */
-}
-
-.row {
+  width: 100vw;
+  height: auto;
+  display: block;
   margin: 0;
   padding: 0;
 }
+
+/* ============================= */
+/* STYLING FOR FEATURED PRODUCTS */
+/* ============================= */
+/* Featured Products Section */
+.featured-products {
+  text-align: center;
+  padding: 50px 0;
+}
+
+
+
 
 
 
@@ -30,11 +37,6 @@ body {
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
-}
-
-/* Hover Effect */
-.logout-icon:hover {
-  transform: scale(1.1);
 }
 
 
