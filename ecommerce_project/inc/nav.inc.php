@@ -1,36 +1,43 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Load config file to get BASE_URL
-require_once __DIR__ . "/../secure/config/config.php";
+session_start();
+$cart_count = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
 ?>
-<nav class="navbar navbar-expand-lg bg-secondary">
-    <div class="container">
-        <a class="navbar-brand" href="<?= BASE_URL ?>/index.php">
-            <img src="<?= BASE_URL ?>/images/logo.jpeg" alt="World of Pets Logo" width="30" height="24">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav me-auto">
-                <a class="nav-link" aria-current="page" href="<?= BASE_URL ?>/index.php">Home</a>
-                <a class="nav-link" href="#dogs">Dogs</a>
-                <a class="nav-link" href="#cats">Cats</a>
-            </div>
-            <!-- Right-aligned Login/Logout and Register buttons -->
-            <div class="navbar-nav ms-auto">
-                <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true): ?>
-                    <span class="navbar-text me-2 text-white">Welcome, <?= htmlspecialchars($_SESSION["fname"]) ?>!</span>
-                    <a href="<?= BASE_URL ?>/logout.php" class="btn btn-outline-light btn-lg">Logout</a>
-                <?php else: ?>
-                    <a href="<?= BASE_URL ?>/login.php" class="btn btn-outline-light me-2 btn-lg">Login</a>
-                    <a href="<?= BASE_URL ?>/register.php" class="btn btn-primary btn-lg">Register</a>
-                <?php endif; ?>
-            </div>
+
+<header>
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="logo.png" alt="PurePaw Logo">
+            <span>PurePaw</span>
         </div>
-    </div>
-</nav>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.php" class="active">Home</a></li>
+            <li><a href="shop.php">Shop</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="contact.php">Contact</a></li>
+        </ul>
+
+        <!-- Icons Section -->
+        <div class="nav-icons">
+            <a href="#"><i class="fas fa-search"></i></a>  
+            <a href="account.php"><i class="fas fa-user"></i></a>  
+            <a href="wishlist.php"><i class="fas fa-heart"></i></a>  
+            <a href="cart.php"><i class="fas fa-shopping-cart"></i> <span class="cart-count" id="cart-count"><?= $cart_count; ?></span></a>
+        </div>
+
+        <!-- Hamburger Menu (Mobile) -->
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <ul class="mobile-nav" id="mobile-nav">
+        <li><a href="index.php" class="active">Home</a></li>
+        <li><a href="shop.php">Shop</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="contact.php">Contact</a></li>
+    </ul>
+</header>
