@@ -1,47 +1,53 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Highlight active menu item
-    function activateMenu() {
-        const navLinks = document.querySelectorAll(".nav-links a, .mobile-nav a"); // Also highlight in mobile menu
-        navLinks.forEach(link => {
-            if (link.href === location.href) {
-                link.classList.add("active");
-            }
-        });
-    }
-    activateMenu();
-
-    // Image popup functionality
-    const thumbnails = document.getElementsByClassName("img-thumbnail");
-
-    Array.from(thumbnails).forEach(thumbnail => {
-        thumbnail.addEventListener("click", function () {
-            // Remove existing popups
-            document.querySelectorAll(".img-popup").forEach(popup => popup.remove());
-
-            // Create new popup container
-            const popup = document.createElement("div");
-            popup.classList.add("img-popup");
-
-            // Create popup image
-            const img = document.createElement("img");
-            img.src = thumbnail.getAttribute("popup-src");
-            img.alt = "Popup Image";
-
-            // Create close button
-            const closeBtn = document.createElement("span");
-            closeBtn.classList.add("close-popup");
-            closeBtn.innerHTML = "&times;"; // X symbol
-            closeBtn.addEventListener("click", () => popup.remove());
-
-            // Append elements to popup
-            popup.appendChild(closeBtn);
-            popup.appendChild(img);
-            document.body.appendChild(popup);
-
-            // Close popup when clicking outside the image
-            popup.addEventListener("click", (e) => {
-                if (e.target === popup) popup.remove();
-            });
-        });
+    registerEventListeners();
+    activateMenu(); // Call the function to activate the correct menu item
+  });
+  
+  function activateMenu() {
+    const navLinks = document.querySelectorAll("nav a");
+    const currentPage = window.location.pathname.split("/").pop() || "index.php"; 
+  
+    navLinks.forEach((link) => {
+      const linkPage = link.getAttribute("href").split("/").pop(); // Extract filename from href
+  
+      // Remove 'active' class from all links first
+      link.classList.remove("active");
+  
+      // Apply 'active' class only if the link matches the current page
+      if (currentPage === linkPage) {
+        link.classList.add("active");
+      }
     });
-});
+  }
+  
+  function registerEventListeners() {
+    // Select all image thumbnails
+    const thumbnails = document.getElementsByClassName('img-thumbnail');
+  
+    for (let i = 0; i < thumbnails.length; i++) {
+      thumbnails[i].addEventListener('click', function (event) {
+        // Remove any existing popup
+        const existingPopup = document.querySelector('.img-popup');
+        if (existingPopup) existingPopup.remove();
+  
+        // Add the blur effect to the body
+        document.body.classList.add('body-blur');
+  
+        // Create the popup image
+        const popupImage = document.createElement('img');
+        popupImage.src = event.target.src.replace('_small', '_large'); // Switch to larger image
+        popupImage.className = 'img-popup';
+  
+        // Append the popup image directly to the <html> element
+        document.documentElement.appendChild(popupImage);
+  
+        // Close the popup when clicking on the image itself
+        popupImage.addEventListener('click', function () {
+          popupImage.remove();
+          document.body.classList.remove('body-blur'); // Remove blur effect
+        });
+      });
+    }
+  }
+  
+  
