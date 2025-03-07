@@ -1,67 +1,351 @@
 body {
-  background-color: lightblue;
+  padding-bottom: 100px;
 }
 
-.nav-link {
-  color: white; /* Change "blue" to any color you like */
+
+/* ============================= */
+/* STYLING FOR NAVIGATION BAR    */
+/* ============================= */
+
+.hero-img {
+  width: 100vw; /* 100% of viewport width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Removes inline spacing */
+  margin: 0; /* Remove any default margins */
+  padding: 0; /* Remove any extra padding */
 }
 
-.navbar img {
-  height: 50px;
-  width: auto;
-  object-fit: contain;
+.row {
+  margin: 0;
+  padding: 0;
 }
+
+
+
+
+/* Logout Button */
+.logout-icon {
+  width: 40px;
+  height: auto;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.logout-icon:hover {
+  transform: scale(1.1);
+}
+
+
+/* General button styling */
+.navbar .btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  text-align: center;
+  min-width: 120px;
+  display: inline-block;
+}
+
+/* Login Button */
+.navbar .btn-login {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid white;
+}
+
+/* Hover Effect for Login */
+.navbar .btn-login:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #4c59af, #36428e);
+  border: 0px;
+}
+
+/* Signup Button */
+.navbar .btn-signup {
+  background: linear-gradient(135deg, #4c59af, #36428e);
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Hover Effect for Signup */
+.navbar .btn-signup:hover {
+  background: linear-gradient(135deg, #4c59af, #4c59af);
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Active Click Effect for Signup */
+.navbar .btn-signup:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/* ============================= */
+/* STYLING FOR HOME PAGE         */
+/* ============================= */
 
 .img-popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.8); /* Background overlay */
+  max-width: 90vw;
+  max-height: 90vh;
+  z-index: 9999;
+  background-color: rgb(220, 220, 220);
   padding: 10px;
-  border-radius: 8px;
-  z-index: 1000;
-}
-
-.img-popup img {
+  border: 3px double gray;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  object-fit: contain;
+  transition: top 0ms ease-in-out 300ms, transform 500ms ease-in-out;
   display: block;
-  margin: auto;
-  max-width: 100%;
-  max-height: 100%;
-  border: 2px solid white;
+  margin: 0 auto;
 }
 
-section h2 {
+.body-blur {
+  filter: blur(5px);
+  transition: filter 500ms ease-in-out;
+}
+
+
+
+h1.title {
+  font-weight: lighter;
+  font-size: 55px;
+  text-align: center;
+}
+
+h2.subtitle {
+  text-decoration: none;
+}
+
+h2.cats {
+  margin-top: 50px;
+}
+
+h2.dogs {
+  margin-top: 50px;
+}
+
+h2 {
   text-decoration: underline;
 }
 
-section img {
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  background-color: #fff;
-  box-shadow: 0 0 0 5px #ccc;
-  transition: box-shadow 0.3s ease;
+
+img {
+  border: 0.5px gray;
+  border-radius: 0px;
+  border-style: double;
+  border-width: 5px;
+  padding: 0;
 }
 
-section img:hover {
-  box-shadow: 0 0 5px 3px rgba(0, 140, 186, 0.5);
+header {
+  width: 100%;
+  padding: 20px;
 }
 
 figure {
   display: inline-block;
   text-align: center;
+  margin: 0 auto;
 }
 
 figcaption {
-  color: grey;
   font-style: italic;
+  color: gray;
+  margin-top: 5px;
 }
 
-footer {
-  border-top: double;
+
+img.logo {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  width: auto;
+}
+
+footer.container {
+  border-top: gray solid 2px;
+  padding-top: 20px;
   text-align: center;
-  font-style: italic;
-  font-size: smaller;
-  padding-top: 10px;
+
+}
+
+/* ============================= */
+/* STYLING FOR LOGIN FORM     */
+/* ============================= */
+
+.login-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* ============================= */
+/* STYLING FOR REGISTER FORM     */
+/* ============================= */
+
+.register-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-container h1 {
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #444;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-register {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-register:hover {
+  background-color: #0056b3;
+}
+
+/* ============================= */
+/* STYLING FOR ERROR PAGE        */
+/* ============================= */
+
+.error-container {
+  max-width: 1000px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.error-container h4 {
+  color: red;
+  font-weight: bold;
+}
+
+.error-msg {
+  color: #000000;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn-danger,
+.btn-secondary {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 10px 5px;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+}
+
+.btn-secondary {
+  background-color: #45a973;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #437058;
+}
+
+.alert-success {
+  background-color: #dff3e4 !important;
+  /* Bootstrap default green */
+  color: rgb(0, 0, 0);
+  border: 1px solid #218838;
+  /* Darker green border */
 }
